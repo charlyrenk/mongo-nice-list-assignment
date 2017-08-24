@@ -1,4 +1,4 @@
-# Antares Mongoose Intro (completed lecture repo)
+# Mongoose Intro
 An overview for today's Mongoose lecture.
 
 We are starting with an application that will run and serve our
