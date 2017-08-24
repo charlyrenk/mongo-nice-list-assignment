@@ -3,7 +3,6 @@ var app = express();
 var bodyParser = require('body-parser');
 var path = require('path');
 var index = require('./routes/index.js');
-var mongoose = require('mongoose');
 
 /** ---------- MIDDLEWARE ---------- **/
 app.use(express.static(path.join(__dirname, './public')));
