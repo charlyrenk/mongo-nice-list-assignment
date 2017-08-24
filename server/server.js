@@ -3,6 +3,8 @@ var app = express();
 var bodyParser = require('body-parser');
 var path = require('path');
 var index = require('./routes/index.js');
+var person = require('./routes/person.js');
+
 var mongoose = require('mongoose');
 
 /** ---------- MIDDLEWARE ---------- **/
@@ -11,6 +13,7 @@ app.use(bodyParser.json()); // needed for angular requests
 
 /** ---------- EXPRESS ROUTES ---------- **/
 app.use('/', index);
+app.use('/person', person);
 
 
 /** MONGOOSE CONNECTION **/
@@ -25,7 +28,6 @@ mongoose.connect(databaseUrl,
 mongoose.connection.on('connected', function() {
     console.log('mongoose connected to : ', databaseUrl);    
 });
-
 mongoose.connection.on('error', function (err) {
     console.log('mongoose connection error to : ', err);
 });

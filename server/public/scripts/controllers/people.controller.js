@@ -4,6 +4,8 @@ function (PersonService) {
     
     var self = this;
     self.newPerson = {};
+    PersonService.getPeople();
+    self.gottenPeople = PersonService.gottenPeople;    
 
     self.addPerson = function() {
         // have service send this to the server
