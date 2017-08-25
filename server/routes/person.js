@@ -4,7 +4,16 @@ var router = express.Router();
 var Person = require('../models/person.schema.js');
 
 router.get('/', function(req, res) {
-    res.send([{name: 'test', location: 'also test'}]);
+    // find all of the people in the collection
+    Person.find({}, function(err, data) {
+        if (err) {
+            console.log('find error: ', err);
+            res.sendStatus(500);
+        } else {
+            console.log('found data: ', data);            
+            res.send(data);
+        }
+    });
 });
 
 router.post('/', function(req, res) {
@@ -25,6 +34,40 @@ router.post('/', function(req, res) {
         }
         
     });
+});
+
+router.put('/:id', function(req, res) {
+    var personId = req.params.id;
+
+    console.log('new location:', req.body.location);
+    Person.findByIdAndUpdate(
+        { _id: personId },
+        { $set: { location: req.body.location } },
+        function(err, data) {
+            if (err) {
+                console.log('update error: ', err);
+
+                res.sendStatus(500);
+            } else {
+                res.sendStatus(200);
+            }
+        }
+    )
+});
+
+router.delete('/:id', function(req, res) {
+    Person.findByIdAndRemove(
+        { _id: req.params.id },
+        function(err, data) {
+            if (err) {
+                console.log('delete error: ', err);
+
+                res.sendStatus(500);
+            } else {
+                res.sendStatus(200);
+            }
+        }
+    );
 });
 
 

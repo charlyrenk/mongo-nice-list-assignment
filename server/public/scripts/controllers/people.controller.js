@@ -13,5 +13,14 @@ function (PersonService) {
         PersonService.addPeople(self.newPerson);
     }
 
+    self.updatePerson = function(currentPerson) {
+        currentPerson.location = "Oz";
+        PersonService.updatePerson(currentPerson);
+    }
+
+    self.deletePerson = function(personId) {
+        PersonService.deletePerson(personId);
+    }
+
 
 }]);

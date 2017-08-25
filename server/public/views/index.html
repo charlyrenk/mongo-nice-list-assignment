@@ -30,7 +30,11 @@
               <div ng-repeat="person in vm.gottenPeople.list" class="well col-md-3">
                 <p>{{person.name}}</p>
                 <p>{{person.location}}</p>
-                <button ng-click="vm.updatePerson(person._id)" class="btn btn-default">Update</button>
+                <!-- input example. commented out because it does not work with the schema -->
+                <!-- <input type="text" ng-model="person.candybar" /> -->
+
+                <!-- Angular knows which 'person' object we mean when we click on the buttons -->
+                <button ng-click="vm.updatePerson(person)" class="btn btn-default">Update</button>
                 <button ng-click="vm.deletePerson(person._id)" class="btn btn-danger">Delete</button>
               </div>
           </div>
