@@ -20,7 +20,12 @@
                 <input type="text" ng-model="vm.newPerson.name" id="name" placeholder="Name" />
                 <label for="location">Location: </label>
                 <input type="text" ng-model="vm.newPerson.location" id="location" placeholder="Location" />
+                <label for="dateOfBirth">Date of Birth: </label>
+                <input type="text" ng-model="vm.newPerson.dateOfBirth" id="dateOfBirth" placeholder="Date of Birth" />
                 <button class="btn btn-primary" ng-click="vm.addPerson()">Add Person</button>
+                
+                
+
             </form>
             </div>
         </div>
@@ -30,6 +35,8 @@
               <div ng-repeat="person in vm.gottenPeople.list" class="well col-md-3">
                 <p>{{person.name}}</p>
                 <p>{{person.location}}</p>
+                <p>{{person.dateOfBirth}}</p>
+                <p>{{person.internetPts}}</p>
                 <!-- input example. commented out because it does not work with the schema -->
                 <!-- <input type="text" ng-model="person.candybar" /> -->
 
