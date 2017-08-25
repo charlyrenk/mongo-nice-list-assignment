@@ -42,7 +42,7 @@ router.put('/:id', function(req, res) {
     console.log('new location:', req.body.location);
     Person.findByIdAndUpdate(
         { _id: personId },
-        { $set: { location: req.body.location } },
+        { $set: { location: req.body.location, internetPts: req.body.internetPts} },
         function(err, data) {
             if (err) {
                 console.log('update error: ', err);

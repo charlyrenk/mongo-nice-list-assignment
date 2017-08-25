@@ -7,12 +7,13 @@ function (PersonService) {
     };
     PersonService.getPeople();
     self.gottenPeople = PersonService.gottenPeople; 
-    self.newPerson.internetPts = 1000; 
 
     self.addPerson = function() {
         // have service send this to the server
         console.log('clicked to add new person');
+        self.newPerson.internetPts = 1000; 
         PersonService.addPeople(self.newPerson);
+
     }
 
 
@@ -23,6 +24,11 @@ function (PersonService) {
 
     self.deletePerson = function(personId) {
         PersonService.deletePerson(personId);
+    }
+
+    self.addPoints = function(currentPerson) {
+        currentPerson.internetPts += 100;
+        PersonService.updatePerson(currentPerson);
     }
 
 
